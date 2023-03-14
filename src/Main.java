@@ -29,30 +29,13 @@ public class Main {
 
             switch (selectOperation) {
                 case "1":
-                    System.out.print("Введите какую покупку вы хотите совершить: \n>>");
-                    String addItem = scanner.next();
-                    shoppingList.add(addItem);
-                    System.out.println("Итого в списке покупок: " + shoppingList.size());
+                    InputOptions.addPurchase(scanner, shoppingList);
                     break;
                 case "2":
-                    System.out.println("Список покупок:");
-                    for (int j = 0; j < shoppingList.size(); j++) {
-                        System.out.println((j + 1) + ". " + shoppingList.get(j));
-                    }
+                    InputOptions.listShop(shoppingList);
                     break;
                 case "3":
-                    System.out.println("Список покупок:");
-                    for (int j = 0; j < shoppingList.size(); j++) {
-                        System.out.println((j + 1) + ". " + shoppingList.get(j));
-                    }
-                    System.out.print("Какую покупку вы хотите удалить? Введите номер или название \n>>");
-                    try {
-                        int removeNumber = scanner.nextInt();
-                        shoppingList.remove(removeNumber - 1);
-                    } catch (RuntimeException e) {
-                        String removeItem = scanner.next();
-                        shoppingList.remove(removeItem);
-                    }
+                    InputOptions.removingProduct(scanner, shoppingList);
                     break;
                 default:
                     System.out.println("Такой операции не существует");
@@ -63,4 +46,3 @@ public class Main {
 
     }
 }
-
